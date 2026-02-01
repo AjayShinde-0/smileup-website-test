@@ -1,0 +1,22 @@
+{
+  "clinicName": "Smile Up Clinic",
+  "tagline": "Your Journey to a Perfect Smile Starts Here",
+  "phone": "(555) 123-4567",
+  "emergencyPhone": "(555) 123-4599",
+  "email": "hello@smileupclinic.com",
+  "address": "123 Dental Street, Health City, HC 12345",
+  "social": {
+    "facebook": "https://facebook.com/smileupclinic",
+    "instagram": "https://instagram.com/smileupclinic",
+    "twitter": "https://twitter.com/smileupclinic"
+  },
+  "hours": [
+    { "day": "Monday", "time": "8:00 AM - 6:00 PM" },
+    { "day": "Tuesday", "time": "8:00 AM - 6:00 PM" },
+    { "day": "Wednesday", "time": "8:00 AM - 6:00 PM" },
+    { "day": "Thursday", "time": "8:00 AM - 7:00 PM" },
+    { "day": "Friday", "time": "8:00 AM - 5:00 PM" },
+    { "day": "Saturday", "time": "9:00 AM - 2:00 PM" },
+    { "day": "Sunday", "time": "Closed" }
+  ]
+}

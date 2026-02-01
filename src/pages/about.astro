@@ -1,0 +1,351 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: 'Dr. Sarah Mitchell',
+    role: 'Lead Dentist & Founder',
+    bio: 'Dr. Mitchell brings over 15 years of experience in general and cosmetic dentistry. She founded Smile Up Clinic with a vision to provide compassionate, patient-centered care.',
+    specialties: ['Cosmetic Dentistry', 'Smile Makeovers', 'Dental Implants'],
+    education: 'DDS, University of California'
+  },
+  {
+    name: 'Dr. James Chen',
+    role: 'Orthodontist',
+    bio: 'Dr. Chen specializes in orthodontic treatments for all ages. His gentle approach and attention to detail ensure beautiful, lasting results.',
+    specialties: ['Invisalign', 'Traditional Braces', 'Early Intervention'],
+    education: 'DMD, Harvard School of Dental Medicine'
+  },
+  {
+    name: 'Dr. Emily Rodriguez',
+    role: 'Pediatric Dentist',
+    bio: 'Dr. Rodriguez creates a fun, welcoming environment for young patients. She believes early positive dental experiences lead to lifelong oral health.',
+    specialties: ['Pediatric Care', 'Preventive Dentistry', 'Behavior Management'],
+    education: 'DDS, NYU College of Dentistry'
+  },
+  {
+    name: 'Lisa Thompson',
+    role: 'Dental Hygienist',
+    bio: 'Lisa has been with Smile Up Clinic since day one. Her thorough yet gentle cleanings keep our patients smiling bright.',
+    specialties: ['Professional Cleanings', 'Periodontal Care', 'Patient Education'],
+    education: 'AS in Dental Hygiene'
+  }
+];
+
+const values = [
+  {
+    icon: '❤️',
+    title: 'Compassionate Care',
+    description: 'We treat every patient with kindness, empathy, and respect.'
+  },
+  {
+    icon: '🎯',
+    title: 'Excellence',
+    description: 'We pursue the highest standards in dental care and patient service.'
+  },
+  {
+    icon: '🤝',
+    title: 'Trust',
+    description: 'We build lasting relationships through honesty and transparency.'
+  },
+  {
+    icon: '💡',
+    title: 'Innovation',
+    description: 'We embrace advanced technology for better patient outcomes.'
+  }
+];
+---
+
+<Layout title="About Us" description="Meet the dedicated team at Smile Up Clinic. Learn about our mission, values, and commitment to your dental health.">
+  <section class="page-header">
+    <div class="container">
+      <span class="page-tag">About Us</span>
+      <h1>Meet Our Team</h1>
+      <p>Dedicated professionals committed to your smile and oral health.</p>
+    </div>
+  </section>
+
+  <section class="section mission-section">
+    <div class="container">
+      <div class="mission-content">
+        <div class="mission-text">
+          <span class="section-tag">Our Mission</span>
+          <h2>Creating Healthy Smiles, One Patient at a Time</h2>
+          <p>At Smile Up Clinic, we believe everyone deserves a healthy, beautiful smile. Founded in 2010, our clinic has grown from a small practice into a comprehensive dental care center, serving thousands of patients in our community.</p>
+          <p>Our mission is simple: provide exceptional dental care in a warm, welcoming environment where patients feel comfortable and confident about their treatment.</p>
+        </div>
+        <div class="mission-stats">
+          <div class="stat-card">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Years of Excellence</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Happy Patients</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Expert Dentists</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Satisfaction Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section values-section bg-accent">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Values</span>
+        <h2>What We Stand For</h2>
+      </div>
+      <div class="values-grid">
+        {values.map((value) => (
+          <div class="value-card">
+            <span class="value-icon">{value.icon}</span>
+            <h3>{value.title}</h3>
+            <p>{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section team-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Team</span>
+        <h2>Meet the Experts Behind Your Smile</h2>
+        <p>Our experienced team combines expertise with a passion for patient care.</p>
+      </div>
+      
+      <div class="team-grid">
+        {team.map((member, index) => (
+          <div class="team-card" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="team-avatar">
+              {member.name.split(' ').map(n => n[0]).join('')}
+            </div>
+            <div class="team-info">
+              <h3>{member.name}</h3>
+              <span class="team-role">{member.role}</span>
+              <p class="team-bio">{member.bio}</p>
+              <div class="team-specialties">
+                {member.specialties.map((specialty) => (
+                  <span class="specialty-tag">{specialty}</span>
+                ))}
+              </div>
+              <p class="team-education">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+                {member.education}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Join Our Family?</h2>
+        <p>Schedule your first appointment and experience the Smile Up difference.</p>
+        <a href="/contact" class="btn btn-primary">Book Your Visit</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    padding: calc(80px + var(--space-4xl)) 0 var(--space-3xl);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-white) 100%);
+    text-align: center;
+  }
+  
+  .page-tag, .section-tag {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .page-header h1 { margin-bottom: var(--space-md); }
+  .page-header p { color: var(--color-gray-600); font-size: 1.125rem; }
+  
+  .mission-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+  
+  .mission-text h2 { margin-bottom: var(--space-lg); }
+  .mission-text p { color: var(--color-gray-600); line-height: 1.8; }
+  
+  .mission-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .stat-card {
+    background: var(--color-accent);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .stat-label { color: var(--color-gray-600); font-size: 0.9rem; }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  .value-card { text-align: center; padding: var(--space-xl); }
+  .value-icon { font-size: 3rem; display: block; margin-bottom: var(--space-md); }
+  .value-card h3 { font-size: 1.1rem; margin-bottom: var(--space-sm); }
+  .value-card p { color: var(--color-gray-600); font-size: 0.95rem; margin: 0; }
+  
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-3xl);
+  }
+  
+  .section-header h2 { margin-bottom: var(--space-md); }
+  .section-header p { color: var(--color-gray-600); }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  .team-card {
+    display: flex;
+    gap: var(--space-xl);
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+  
+  .team-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+  
+  .team-avatar {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-white);
+    font-size: 1.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+  }
+  
+  .team-info h3 { font-size: 1.25rem; margin-bottom: var(--space-xs); }
+  
+  .team-role {
+    display: block;
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+  }
+  
+  .team-bio {
+    color: var(--color-gray-600);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+  
+  .team-specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+  
+  .specialty-tag {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .team-education {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-gray-500);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  
+  .team-education svg { color: var(--color-primary); }
+  
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    padding: var(--space-4xl) 0;
+    text-align: center;
+  }
+  
+  .cta-content h2 { color: var(--color-white); margin-bottom: var(--space-md); }
+  .cta-content p { color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: var(--space-xl); }
+  .cta-section .btn-primary { background: var(--color-white); color: var(--color-primary); }
+  .cta-section .btn-primary:hover { background: var(--color-off-white); }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @media (max-width: 1024px) {
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 900px) {
+    .mission-content { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+  }
+  
+  @media (max-width: 600px) {
+    .values-grid { grid-template-columns: 1fr; }
+    .team-card { flex-direction: column; text-align: center; }
+    .team-avatar { margin: 0 auto; }
+    .team-specialties { justify-content: center; }
+    .team-education { justify-content: center; }
+  }
+</style>

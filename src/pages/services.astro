@@ -1,0 +1,395 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    id: 'general',
+    icon: '🦷',
+    title: 'General Dentistry',
+    description: 'Comprehensive dental care for your everyday oral health needs.',
+    features: [
+      'Dental Check-ups & Cleanings',
+      'Tooth Fillings',
+      'Root Canal Treatment',
+      'Tooth Extractions',
+      'Gum Disease Treatment',
+      'Preventive Care'
+    ],
+    price: 'From $75'
+  },
+  {
+    id: 'cosmetic',
+    icon: '✨',
+    title: 'Cosmetic Dentistry',
+    description: 'Transform your smile with our aesthetic dental treatments.',
+    features: [
+      'Dental Veneers',
+      'Teeth Bonding',
+      'Smile Makeovers',
+      'Gum Contouring',
+      'Tooth Reshaping',
+      'Full Mouth Reconstruction'
+    ],
+    price: 'From $300'
+  },
+  {
+    id: 'whitening',
+    icon: '💎',
+    title: 'Teeth Whitening',
+    description: 'Professional whitening for a brighter, more confident smile.',
+    features: [
+      'In-Office Whitening',
+      'Take-Home Whitening Kits',
+      'Laser Whitening',
+      'Deep Stain Removal',
+      'Maintenance Treatments',
+      'Sensitivity-Free Options'
+    ],
+    price: 'From $150'
+  },
+  {
+    id: 'implants',
+    icon: '🔩',
+    title: 'Dental Implants',
+    description: 'Permanent tooth replacement that looks and feels natural.',
+    features: [
+      'Single Tooth Implants',
+      'Multiple Tooth Implants',
+      'All-on-4 Implants',
+      'Implant-Supported Dentures',
+      'Bone Grafting',
+      'Sinus Lift Procedures'
+    ],
+    price: 'From $1,500'
+  },
+  {
+    id: 'orthodontics',
+    icon: '😁',
+    title: 'Orthodontics',
+    description: 'Straighten your teeth for a perfect, aligned smile.',
+    features: [
+      'Traditional Braces',
+      'Clear Aligners',
+      'Invisalign Treatment',
+      'Retainers',
+      'Early Intervention',
+      'Adult Orthodontics'
+    ],
+    price: 'From $2,000'
+  },
+  {
+    id: 'emergency',
+    icon: '🚨',
+    title: 'Emergency Care',
+    description: '24/7 emergency dental services when you need them most.',
+    features: [
+      'Severe Toothache Relief',
+      'Broken Tooth Repair',
+      'Lost Filling/Crown',
+      'Dental Abscess Treatment',
+      'Trauma Care',
+      'Same-Day Appointments'
+    ],
+    price: 'Call for pricing'
+  }
+];
+---
+
+<Layout title="Services" description="Explore our comprehensive dental services including general dentistry, cosmetic treatments, teeth whitening, and more.">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="page-tag">Our Services</span>
+      <h1>Comprehensive Dental Care</h1>
+      <p>From routine check-ups to advanced treatments, we offer a full range of dental services to keep your smile healthy and beautiful.</p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section services-section">
+    <div class="container">
+      <div class="services-grid">
+        {services.map((service, index) => (
+          <div class="service-card" id={service.id} style={`animation-delay: ${index * 0.1}s`}>
+            <div class="service-header">
+              <span class="service-icon">{service.icon}</span>
+              <div>
+                <h2>{service.title}</h2>
+                <p class="service-price">{service.price}</p>
+              </div>
+            </div>
+            <p class="service-description">{service.description}</p>
+            <ul class="service-features">
+              {service.features.map((feature) => (
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <a href="/contact" class="btn btn-primary service-btn">Book Appointment</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Insurance Section -->
+  <section class="section insurance-section bg-accent">
+    <div class="container">
+      <div class="insurance-content">
+        <div class="insurance-text">
+          <span class="section-tag">Insurance & Payment</span>
+          <h2>Affordable Care for Everyone</h2>
+          <p>We believe quality dental care should be accessible. We accept most major insurance plans and offer flexible payment options.</p>
+          <ul class="insurance-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Most major insurance accepted
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Flexible payment plans available
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              No-interest financing options
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Senior & family discounts
+            </li>
+          </ul>
+          <a href="/contact" class="btn btn-primary">Contact for Details</a>
+        </div>
+        <div class="insurance-visual">
+          <div class="insurance-card">
+            <h3>Have Questions?</h3>
+            <p>Our team is happy to help verify your insurance coverage and explain your payment options.</p>
+            <a href="tel:5551234567" class="insurance-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              (555) 123-4567
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    padding: calc(80px + var(--space-4xl)) 0 var(--space-3xl);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-white) 100%);
+    text-align: center;
+  }
+  
+  .page-tag {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .page-header h1 {
+    margin-bottom: var(--space-md);
+  }
+  
+  .page-header p {
+    color: var(--color-gray-600);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+  
+  .service-card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+  
+  .service-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+  }
+  
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .service-icon {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    border-radius: var(--radius-lg);
+  }
+  
+  .service-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .service-price {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .service-description {
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .service-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-gray-600);
+    font-size: 0.95rem;
+  }
+  
+  .service-features svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+  
+  .service-btn {
+    width: 100%;
+  }
+  
+  /* Insurance Section */
+  .insurance-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+  
+  .section-tag {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .insurance-text h2 {
+    margin-bottom: var(--space-md);
+  }
+  
+  .insurance-text > p {
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .insurance-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .insurance-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-gray-700);
+  }
+  
+  .insurance-list svg {
+    color: var(--color-primary);
+  }
+  
+  .insurance-card {
+    background: var(--color-white);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+  }
+  
+  .insurance-card h3 {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .insurance-card p {
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .insurance-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+  }
+  
+  .insurance-phone:hover {
+    color: var(--color-primary-dark);
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-features {
+      grid-template-columns: 1fr;
+    }
+    
+    .insurance-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,245 @@
+---
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="/images/logo.png" alt="Smile Up Clinic" class="logo-img" />
+      <span class="logo-text">
+        <span class="logo-name">SMILE UP</span>
+        <span class="logo-tagline">CLINIC</span>
+      </span>
+    </a>
+    
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        {navLinks.map((link) => (
+          <li>
+            <a 
+              href={link.href} 
+              class={`nav-link ${currentPath === link.href ? 'active' : ''}`}
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <a href="/contact" class="btn btn-primary header-cta">
+      Book Appointment
+    </a>
+    
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-gray-200);
+    transition: all var(--transition-normal);
+  }
+  
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .logo-img {
+    width: 50px;
+    height: auto;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  
+  .logo-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
+  }
+  
+  .logo-tagline {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-gray-500);
+    letter-spacing: 2px;
+  }
+  
+  .nav-list {
+    display: flex;
+    gap: var(--space-xl);
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    color: var(--color-gray-600);
+    padding: var(--space-sm) 0;
+    position: relative;
+    transition: color var(--transition-fast);
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition-normal);
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+  
+  .header-cta {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.9rem;
+  }
+  
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: var(--space-sm);
+  }
+  
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-gray-700);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+  }
+  
+  .hamburger {
+    position: relative;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+  }
+  
+  .hamburger::before {
+    top: -7px;
+  }
+  
+  .hamburger::after {
+    top: 7px;
+  }
+  
+  .mobile-toggle.active .hamburger {
+    background: transparent;
+  }
+  
+  .mobile-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  
+  .mobile-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  
+  @media (max-width: 900px) {
+    .header-cta {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-toggle {
+      display: flex;
+    }
+    
+    .nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-white);
+      padding: var(--space-xl);
+      transform: translateX(100%);
+      transition: transform var(--transition-normal);
+    }
+    
+    .nav.active {
+      transform: translateX(0);
+    }
+    
+    .nav-list {
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    
+    .nav-link {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const nav = document.getElementById('nav');
+  
+  mobileToggle?.addEventListener('click', () => {
+    mobileToggle.classList.toggle('active');
+    nav?.classList.toggle('active');
+  });
+  
+  // Close menu when clicking a link
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileToggle?.classList.remove('active');
+      nav?.classList.remove('active');
+    });
+  });
+</script>
