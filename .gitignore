@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+.output/
+.astro/
+
+# Local environment files
+.env
+.env.*
+.env.local
+.env.*.local
+
+# Netlify local files
+.netlify/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Cache & test outputs
+.cache/
+coverage/
+
+# Misc
+*.env.key
+*.local
+
+# NOTE: Keep project files like package.json, netlify.toml, public/ and src/ tracked.
